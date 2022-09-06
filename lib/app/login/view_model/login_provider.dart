@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:menzclub_admin/app/home/view/home.dart';
+import 'package:menzclub_admin/app/routes/routes.dart';
 
 class LoginProvider with ChangeNotifier {
   final userName = TextEditingController();
@@ -10,7 +12,9 @@ class LoginProvider with ChangeNotifier {
   onTabLoginFunction(
       BuildContext context, String emailFn, String passwordFn) async {
     if (formKey.currentState!.validate()) {
-      return 'sucess';
+      if (emailFn == 'pranavpv257@gmail.com' && passwordFn == 'admin@666') {
+        RoutesProvider.removeScreenUntil(screen: HomeScreen());
+      }
     }
   }
 
