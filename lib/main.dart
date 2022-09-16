@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:menzclub_admin/app/add_products/view_model/add_product_provider.dart';
+import 'package:menzclub_admin/app/home/view/home.dart';
 import 'package:menzclub_admin/app/login/view/login.dart';
 import 'package:menzclub_admin/app/routes/routes.dart';
 import 'package:provider/provider.dart';
@@ -17,6 +19,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (crete) => LoginProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (crete) => AddProductProvider(),
+        ),
       ],
       child: MaterialApp(
         navigatorKey: RoutesProvider.navigatorKey,
@@ -24,7 +29,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const LoginScreen(),
+        home: HomeScreen(),
       ),
     );
   }
