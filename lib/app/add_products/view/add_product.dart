@@ -18,7 +18,7 @@ class AddProductScreen extends StatelessWidget {
           child: Container(
             height: MediaQuery.of(context).size.height,
             color: primary,
-            child: SignupForm(),
+            child: const SignupForm(),
           ),
         ),
       ),
