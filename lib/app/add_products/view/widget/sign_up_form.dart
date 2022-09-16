@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:menzclub_admin/app/add_products/view/widget/description_form.dart';
 import 'package:menzclub_admin/app/add_products/view_model/add_product_provider.dart';
-import 'package:menzclub_admin/app/constants/colors.dart';
 import 'package:provider/provider.dart';
 import 'text_form.dart';
 
@@ -11,8 +11,8 @@ class SignupForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(25.0),
+    return SingleChildScrollView(
+      physics: const ScrollPhysics(),
       child: Form(
         key: context.read<AddProductProvider>().addProductKey,
         child: Padding(
@@ -22,60 +22,56 @@ class SignupForm extends StatelessWidget {
               // const ImageProfileAdd(),
               SignUpTextforms(
                 icon: Icons.person_outline_outlined,
+                text: "Label",
+                obscureText: false,
+                vertical: 20,
+                controller: context.read<AddProductProvider>().name,
+              ),
+              DescriptionTextforms(
+                text: "Description",
+                controller: context.read<AddProductProvider>().description,
+              ),
+              SignUpTextforms(
+                icon: Icons.person_outline_outlined,
+                text: "Brand",
+                obscureText: false,
+                vertical: 20,
+                controller: context.read<AddProductProvider>().brand,
+              ),
+              SignUpTextforms(
+                icon: Icons.person_outline_outlined,
                 text: "Category",
                 obscureText: false,
                 vertical: 20,
-                controller: context.read<AddProductProvider>().userName,
+                controller: context.read<AddProductProvider>().category,
               ),
               SignUpTextforms(
                 icon: Icons.mail_outline_sharp,
                 text: "Color",
                 obscureText: false,
                 vertical: 15,
-                controller: context.read<AddProductProvider>().email,
+                controller: context.read<AddProductProvider>().color,
               ),
               SignUpTextforms(
                 icon: Icons.send_to_mobile_rounded,
                 text: "Brand",
                 obscureText: false,
                 vertical: 15,
-                controller: context.read<AddProductProvider>().phoneNumber,
+                controller: context.read<AddProductProvider>().brand,
               ),
               SignUpTextforms(
                 icon: Icons.lock_outline,
                 text: "Size",
-                obscureText: true,
+                obscureText: false,
                 vertical: 15,
-                controller: context.read<AddProductProvider>().password,
+                controller: context.read<AddProductProvider>().size,
               ),
               SignUpTextforms(
                 icon: Icons.lock_reset_outlined,
                 text: "Fit",
-                obscureText: true,
+                obscureText: false,
                 vertical: 15,
-                controller: context.read<AddProductProvider>().confirmPassword,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10.0),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 120,
-                      vertical: 15,
-                    ),
-                    primary: primary2,
-                    elevation: 10,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                        5,
-                      ),
-                    ),
-                  ),
-                  onPressed: () {},
-                  child: const Text(
-                    "Add Product",
-                  ),
-                ),
+                controller: context.read<AddProductProvider>().fit,
               ),
             ],
           ),

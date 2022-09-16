@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 
 class AddProductProvider with ChangeNotifier {
   final addProductKey = GlobalKey<FormState>();
-  final userName = TextEditingController();
-  final password = TextEditingController();
-  final confirmPassword = TextEditingController();
-  final email = TextEditingController();
-  final phoneNumber = TextEditingController();
+  final name = TextEditingController();
+  final description = TextEditingController();
+  final brand = TextEditingController();
+  final category = TextEditingController();
+  final color = TextEditingController();
+  final size = TextEditingController();
+  final fit = TextEditingController();
   void addProduct(
     BuildContext context,
     String email,
@@ -21,10 +23,10 @@ class AddProductProvider with ChangeNotifier {
   }
 
   disposeControll() {
-    userName.clear();
-    phoneNumber.clear();
-    email.clear();
-    confirmPassword.clear();
-    password.clear();
+    name.clear();
+    color.clear();
+    category.clear();
+    description.clear();
+    brand.clear();
   }
 }
