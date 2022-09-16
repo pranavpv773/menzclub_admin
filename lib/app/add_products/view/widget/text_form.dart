@@ -45,8 +45,8 @@ class SignUpTextforms extends StatelessWidget {
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: const BorderSide(
-              color: Colors.grey,
+            borderSide: BorderSide(
+              color: primary,
               width: 2.0,
             ),
           ),
@@ -59,15 +59,15 @@ class SignUpTextforms extends StatelessWidget {
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: const BorderSide(
-              color: Colors.grey,
+            borderSide: BorderSide(
+              color: primary,
               width: 2.0,
             ),
           ),
           hintText: text,
           hintStyle: TextStyle(
-            fontSize: 15,
-            color: kGrey,
+            fontSize: 16,
+            color: primary,
           ),
         ),
       ),
