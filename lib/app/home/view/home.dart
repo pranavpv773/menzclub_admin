@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
             // );
           },
           child: Text(
-            "ALL TOURNAMENTS",
+            "MenzClub",
             style: TextStyle(
               color: kWhite,
             ),

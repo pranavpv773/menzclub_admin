@@ -12,7 +12,8 @@ class AddProductScreen extends StatelessWidget {
     context.read<AddProductProvider>().disposeControll();
     return SafeArea(
       child: Scaffold(
-        backgroundColor: primary1,
+        appBar: AppBar(),
+        backgroundColor: primary,
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Padding(
