@@ -31,12 +31,30 @@ class SignupForm extends StatelessWidget {
                 text: "Description",
                 controller: context.read<AddProductProvider>().description,
               ),
-              SignUpTextforms(
-                icon: Icons.person_outline_outlined,
-                text: "Brand",
-                obscureText: false,
-                vertical: 20,
-                controller: context.read<AddProductProvider>().brand,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    flex: 6,
+                    child: SignUpTextforms(
+                      icon: Icons.person_outline_outlined,
+                      text: "Price",
+                      obscureText: false,
+                      vertical: 20,
+                      controller: context.read<AddProductProvider>().brand,
+                    ),
+                  ),
+                  Expanded(
+                    flex: 6,
+                    child: SignUpTextforms(
+                      icon: Icons.person_outline_outlined,
+                      text: "Offer",
+                      obscureText: false,
+                      vertical: 20,
+                      controller: context.read<AddProductProvider>().brand,
+                    ),
+                  ),
+                ],
               ),
               SignUpTextforms(
                 icon: Icons.person_outline_outlined,
