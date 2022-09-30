@@ -4,6 +4,7 @@ import 'package:menzclub_admin/app/constants/colors.dart';
 import 'package:provider/provider.dart';
 import 'widget/dot_image_widget.dart';
 import 'widget/sign_up_form.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class AddProductScreen extends StatelessWidget {
   const AddProductScreen({Key? key}) : super(key: key);
@@ -25,7 +26,9 @@ class AddProductScreen extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
-                const DottedImageBorder(),
+                context.watch<AddProductProvider>().images.isNotEmpty
+                    ? const CarosalImageWidget()
+                    : const DottedImageBorder(),
                 const SignupForm(),
                 Padding(
                   padding: const EdgeInsets.only(top: 10.0),
@@ -43,7 +46,9 @@ class AddProductScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      context.read<AddProductProvider>().addProduct();
+                    },
                     child: const Text(
                       "Add Product",
                     ),
@@ -53,6 +58,34 @@ class AddProductScreen extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class CarosalImageWidget extends StatelessWidget {
+  const CarosalImageWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CarouselSlider(
+      items: context.read<AddProductProvider>().images.map(
+        (i) {
+          return Builder(
+            builder: (BuildContext context) => Image.file(
+              i,
+              fit: BoxFit.fitWidth,
+              height: 200,
+            ),
+          );
+        },
+      ).toList(),
+      options: CarouselOptions(
+        reverse: false,
+        viewportFraction: 1,
+        height: 200,
       ),
     );
   }

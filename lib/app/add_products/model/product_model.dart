@@ -1,13 +1,13 @@
 class ProductModel {
   String productname;
   String productdescription;
-  List images;
-  String productprice;
-  String productoffer;
+  List<String> images;
+  double productprice;
+  double productoffer;
   String productcategory;
   String productcolor;
   String productbrand;
-  String productsize;
+  double productsize;
   String productmaterial;
   ProductModel({
     required this.productname,
@@ -45,6 +45,27 @@ class ProductModel {
         "product_material": productmaterial,
         "product_offer": productoffer,
         "product_size": productsize,
-        "images": images,
+        "images": List<String>.from(images.map((x) => x)),
+      };
+}
+
+class ProductResponse {
+  ProductResponse({
+    required this.status,
+    required this.message,
+  });
+
+  bool status;
+  String message;
+
+  factory ProductResponse.fromJson(Map<String, dynamic> json) =>
+      ProductResponse(
+        status: json["status"] ?? "",
+        message: json["message"] ?? "",
+      );
+
+  Map<String, dynamic> toJson() => {
+        "status": status,
+        "message": message,
       };
 }
