@@ -17,29 +17,33 @@ class CategoryScreen extends StatelessWidget {
         title: const Text('Select Category'),
         centerTitle: true,
       ),
-      body: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 200,
-              childAspectRatio: 3 / 2,
-              crossAxisSpacing: 20,
-              mainAxisSpacing: 20),
-          itemCount: AppList.categoryList.length,
-          itemBuilder: (BuildContext ctx, index) {
-            return GestureDetector(
-              onDoubleTap: () {
-                RoutesProvider.nextScreen(screen: AddProductScreen());
-              },
-              child: Container(
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: GridView.builder(
+            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 200,
+                childAspectRatio: 3 / 2,
+                crossAxisSpacing: 20,
+                mainAxisSpacing: 20),
+            itemCount: AppList.categoryList.length,
+            itemBuilder: (BuildContext ctx, index) {
+              return GestureDetector(
+                onTap: () {
+                  RoutesProvider.nextScreen(screen: const AddProductScreen());
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
                     color: Colors.amber,
-                    borderRadius: BorderRadius.circular(15)),
-                child: Text(
-                  AppList.categoryList[index],
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Text(
+                    AppList.categoryList[index],
+                  ),
                 ),
-              ),
-            );
-          }),
+              );
+            }),
+      ),
     );
   }
 }
