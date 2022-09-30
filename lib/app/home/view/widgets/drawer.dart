@@ -1,6 +1,5 @@
 // ignore_for_file: deprecated_member_use
 import 'package:flutter/material.dart';
-import 'package:menzclub_admin/app/add_products/view/add_product.dart';
 import 'package:menzclub_admin/app/category/view/category_screen.dart';
 import 'package:menzclub_admin/app/constants/colors.dart';
 import 'package:menzclub_admin/app/home/view/home.dart';

@@ -14,9 +14,7 @@ class LoginProvider with ChangeNotifier {
     if (formKey.currentState!.validate()) {
       if (emailFn == 'pranavpv257@gmail.com' && passwordFn == 'admin@666') {
         RoutesProvider.removeScreenUntil(screen: HomeScreen());
-      } else {
-        print('object');
-      }
+      } else {}
     }
   }
 
