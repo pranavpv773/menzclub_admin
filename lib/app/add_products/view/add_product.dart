@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:menzclub_admin/app/add_products/view_model/add_product_provider.dart';
 import 'package:menzclub_admin/app/constants/colors.dart';
 import 'package:provider/provider.dart';
+import 'widget/dot_image_widget.dart';
 import 'widget/sign_up_form.dart';
 
 class AddProductScreen extends StatelessWidget {
@@ -12,14 +13,19 @@ class AddProductScreen extends StatelessWidget {
     context.read<AddProductProvider>().disposeControll();
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(),
-        backgroundColor: primary,
+        appBar: AppBar(
+          backgroundColor: primary,
+          title: const Text("Product Form"),
+          centerTitle: true,
+        ),
+        backgroundColor: primary1,
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
+                const DottedImageBorder(),
                 const SignupForm(),
                 Padding(
                   padding: const EdgeInsets.only(top: 10.0),

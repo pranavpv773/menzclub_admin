@@ -37,59 +37,81 @@ class SignupForm extends StatelessWidget {
                   Expanded(
                     flex: 6,
                     child: SignUpTextforms(
-                      icon: Icons.person_outline_outlined,
+                      icon: Icons.price_check,
                       text: "Price",
                       obscureText: false,
                       vertical: 20,
-                      controller: context.read<AddProductProvider>().brand,
+                      controller: context.read<AddProductProvider>().price,
                     ),
                   ),
                   Expanded(
                     flex: 6,
                     child: SignUpTextforms(
-                      icon: Icons.person_outline_outlined,
+                      icon: Icons.discount_outlined,
                       text: "Offer",
                       obscureText: false,
                       vertical: 20,
+                      controller: context.read<AddProductProvider>().offer,
+                    ),
+                  ),
+                ],
+              ),
+              // SignUpTextforms(
+              //   icon: Icons.person_outline_outlined,
+              //   text: "Category",
+              //   obscureText: false,
+              //   vertical: 20,
+              //   controller: context.read<AddProductProvider>().category,
+              // ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    flex: 6,
+                    child: SignUpTextforms(
+                      icon: Icons.color_lens_outlined,
+                      text: "Color",
+                      obscureText: false,
+                      vertical: 15,
+                      controller: context.read<AddProductProvider>().color,
+                    ),
+                  ),
+                  Expanded(
+                    flex: 6,
+                    child: SignUpTextforms(
+                      icon: Icons.branding_watermark_outlined,
+                      text: "Brand",
+                      obscureText: false,
+                      vertical: 15,
                       controller: context.read<AddProductProvider>().brand,
                     ),
                   ),
                 ],
               ),
-              SignUpTextforms(
-                icon: Icons.person_outline_outlined,
-                text: "Category",
-                obscureText: false,
-                vertical: 20,
-                controller: context.read<AddProductProvider>().category,
-              ),
-              SignUpTextforms(
-                icon: Icons.mail_outline_sharp,
-                text: "Color",
-                obscureText: false,
-                vertical: 15,
-                controller: context.read<AddProductProvider>().color,
-              ),
-              SignUpTextforms(
-                icon: Icons.send_to_mobile_rounded,
-                text: "Brand",
-                obscureText: false,
-                vertical: 15,
-                controller: context.read<AddProductProvider>().brand,
-              ),
-              SignUpTextforms(
-                icon: Icons.lock_outline,
-                text: "Size",
-                obscureText: false,
-                vertical: 15,
-                controller: context.read<AddProductProvider>().size,
-              ),
-              SignUpTextforms(
-                icon: Icons.lock_reset_outlined,
-                text: "Fit",
-                obscureText: false,
-                vertical: 15,
-                controller: context.read<AddProductProvider>().fit,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    flex: 6,
+                    child: SignUpTextforms(
+                      icon: Icons.social_distance,
+                      text: "Size",
+                      obscureText: false,
+                      vertical: 15,
+                      controller: context.read<AddProductProvider>().size,
+                    ),
+                  ),
+                  Expanded(
+                    flex: 6,
+                    child: SignUpTextforms(
+                      icon: Icons.fit_screen_outlined,
+                      text: "Fit",
+                      obscureText: false,
+                      vertical: 15,
+                      controller: context.read<AddProductProvider>().material,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

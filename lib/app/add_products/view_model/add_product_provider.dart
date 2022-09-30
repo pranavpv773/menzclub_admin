@@ -8,18 +8,11 @@ class AddProductProvider with ChangeNotifier {
   final category = TextEditingController();
   final color = TextEditingController();
   final size = TextEditingController();
-  final fit = TextEditingController();
-  void addProduct(
-    BuildContext context,
-    String email,
-    String password,
-    String name,
-    String phone,
-    String confirmPass,
-  ) async {
-    if (addProductKey.currentState!.validate()) {
-      if (password != confirmPass) {}
-    }
+  final offer = TextEditingController();
+  final price = TextEditingController();
+  final material = TextEditingController();
+  void addProduct() async {
+    if (addProductKey.currentState!.validate()) {}
   }
 
   disposeControll() {
