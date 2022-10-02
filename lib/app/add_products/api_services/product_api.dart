@@ -12,12 +12,15 @@ class ProductApiServices {
       Response response =
           await Dio().post(ApiEndPoints.addProduct, data: data.toJson());
       if (response.statusCode! >= 200 && response.statusCode! <= 299) {
-        log('product ${response.data.toString()}');
+        log('signup ${response.data.toString()}');
 
         return ProductResponse.fromJson(response.data);
       } else {
         return ProductResponse.fromJson(response.data);
       }
+    } on DioError catch (e) {
+      log('message');
+      return ProductResponse.fromJson(e.response!.data);
     } catch (e) {
       log(e.toString());
       return ProductResponse(status: false, message: e.toString());

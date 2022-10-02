@@ -15,7 +15,7 @@ class AddProductProvider with ChangeNotifier {
   final name = TextEditingController();
   final description = TextEditingController();
   final brand = TextEditingController();
-  final String category = "shirt";
+  String category = "";
   final color = TextEditingController();
   final size = TextEditingController();
   final offer = TextEditingController();
@@ -39,15 +39,13 @@ class AddProductProvider with ChangeNotifier {
             resourceType: CloudinaryResourceType.image,
             folder: "menzclub",
             fileName: images[i].path,
-            progressCallback: (count, total) {
-              log('Uploading image from file with progress: $count/$total');
-            });
+            progressCallback: (count, total) {});
         imageUrls.add(response.secureUrl!);
       }
       final data = ProductModel(
         productname: name.text,
         productdescription: description.text,
-        images: [],
+        images: imageUrls,
         productbrand: brand.text,
         productcategory: category,
         productcolor: color.text,
@@ -56,16 +54,9 @@ class AddProductProvider with ChangeNotifier {
         productprice: double.parse(price.text),
         productsize: double.parse(size.text),
       );
-      log(name.text);
-      log(description.text);
-      log(brand.text);
-      log(color.text);
-      log(material.text);
-      log(offer.text);
-      log(price.text);
-      log(size.text);
+
       ProductResponse? resp = await ProductApiServices().adminAddProduct(data);
-      log('get in to second');
+
       if (resp!.status) {
         Fluttertoast.showToast(
           msg: resp.message,

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:menzclub_admin/app/add_products/view/add_product.dart';
+import 'package:menzclub_admin/app/add_products/view_model/add_product_provider.dart';
 import 'package:menzclub_admin/app/constants/app_list.dart';
 import 'package:menzclub_admin/app/constants/colors.dart';
 import 'package:menzclub_admin/app/routes/routes.dart';
+import 'package:provider/provider.dart';
 
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen({Key? key}) : super(key: key);
@@ -27,6 +29,8 @@ class CategoryScreen extends StatelessWidget {
             itemBuilder: (BuildContext ctx, index) {
               return GestureDetector(
                 onTap: () {
+                  context.read<AddProductProvider>().category =
+                      AppList.categoryList[index];
                   RoutesProvider.nextScreen(screen: const AddProductScreen());
                 },
                 child: Container(
